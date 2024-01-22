@@ -60,15 +60,6 @@ public class NewsServiceImpl implements NewsService {
         return filterNews.map(newsMapper::toDto);
     }
 
-    @Override
-    public List<News> findByAuthor(Users author) {
-        return newsRepository.findAllByAuthor(author);
-    }
-
-    @Override
-    public List<News> findByCategory(NewsCategory category) {
-        return newsRepository.findAllByCategoriesContains(category);
-    }
 
     @Override
     @CommentValid

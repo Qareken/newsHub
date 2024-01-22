@@ -24,11 +24,7 @@ public interface NewsService {
     // Удаление новости по идентификатору
     void deleteById(Long id, Long userId);
     Page<NewsDTO> findByFilter(Pageable pageable, NewsFilter newsFilter);
-    // Поиск новостей по автору
-    List<News> findByAuthor(Users author);
 
-    // Поиск новостей по категории
-    List<News> findByCategory(NewsCategory category);
     News update(Long newsId,News news);
 
     // Другие методы, если необходимо, в соответствии с вашими требованиями

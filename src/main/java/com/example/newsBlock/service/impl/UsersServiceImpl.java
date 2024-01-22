@@ -21,25 +21,11 @@ public class UsersServiceImpl implements UsersService {
         return userRepository.save(user);
     }
 
-    @Override
-    public Users findById(Long id) {
-        return userRepository.findById(id).orElseThrow(()->new EntityNotFoundException(MessageFormat.format("user with {0} id not founded", id)));
-    }
+
 
     @Override
     public Users findByEmail(String email) {
         return userRepository.findUsersByEmail(email).orElseThrow(()->new EntityNotFoundException("User NOT found with this id"));
-    }
-
-    @Override
-    public List<Users> findAll() {
-        return userRepository.findAll();
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        userRepository.deleteById(id);
-
     }
 
     @Override
@@ -55,6 +41,5 @@ public class UsersServiceImpl implements UsersService {
         existUser.setPassword(user.getPassword());
         return save(existUser);
     }
-
 
 }

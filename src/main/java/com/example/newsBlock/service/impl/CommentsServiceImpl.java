@@ -29,10 +29,6 @@ public class CommentsServiceImpl implements CommentsService {
         return commentsRepository.findById(id).orElseThrow(()->new EntityNotFoundException(MessageFormat.format("Comment with {0} not founded", id)));
     }
 
-    @Override
-    public List<Comments> findAll() {
-        return commentsRepository.findAll();
-    }
 
     @Override
     @CommentValid
@@ -40,15 +36,6 @@ public class CommentsServiceImpl implements CommentsService {
         commentsRepository.deleteById(id);
     }
 
-    @Override
-    public List<Comments> findAllByNews(News news) {
-        return commentsRepository.findAllByNews(news);
-    }
-
-    @Override
-    public List<Comments> findAllByUser(Users user) {
-        return commentsRepository.findAllByUsers(user);
-    }
 
     @Override
     @CommentValid

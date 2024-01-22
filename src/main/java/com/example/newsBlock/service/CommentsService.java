@@ -14,16 +14,13 @@ public interface CommentsService {
     Comments findById(Long id);
 
     // Получение списка всех комментариев
-    List<Comments> findAll();
+
 
     // Удаление комментария по идентификатору
     void deleteById(Long id, Long UserId);
 
     // Найти все комментарии для конкретной новости
-    List<Comments> findAllByNews(News news);
 
-    // Найти все комментарии от конкретного пользователя
-    List<Comments> findAllByUser(Users user);
     Comments update(Comments comments);
 
 

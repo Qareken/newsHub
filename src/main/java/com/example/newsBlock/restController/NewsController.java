@@ -9,7 +9,6 @@ import com.example.newsBlock.web.model.UpsertNewsDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -26,7 +25,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 public class NewsController {
     private final NewsServiceImpl service;
     private final NewsMapper newsMapper;
-    @Autowired
+
     public NewsController(NewsServiceImpl service, NewsMapper newsMapper) {
         this.service = service;
         this.newsMapper = newsMapper;

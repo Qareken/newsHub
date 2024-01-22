@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 public class MyAspectAop {
     private final NewsServiceImpl service;
     private final CommentsServiceImpl commentsService;
-    @Autowired
+
     public MyAspectAop(NewsServiceImpl service, CommentsServiceImpl commentsService) {
         this.service = service;
         this.commentsService = commentsService;

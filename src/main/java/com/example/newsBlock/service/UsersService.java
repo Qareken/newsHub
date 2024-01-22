@@ -11,16 +11,15 @@ public interface UsersService {
     Users save(Users user);
 
     // Поиск пользователя по идентификатору
-    Users findById(Long id);
+
 
     // Поиск пользователя по email
     Users findByEmail(String email);
 
     // Получение списка всех пользователей
-    List<Users> findAll();
 
     // Удаление пользователя по идентификатору
-    void deleteById(Long id);
+
     void delete(Users users);
 
     Users update(Users user);

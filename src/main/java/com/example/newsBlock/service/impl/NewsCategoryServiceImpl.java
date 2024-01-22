@@ -31,18 +31,7 @@ public class NewsCategoryServiceImpl implements NewsCategoryService {
     public NewsCategory findById(Long id) {
         return newsCategoryRepository.findById(id).orElseThrow(()-> new EntityNotFoundException(MessageFormat.format("Category with {0} not founded", id)));
     }
-    @Override
-    public List<NewsCategory> findAll() {
-        return newsCategoryRepository.findAll();
-    }
-    @Override
-    public void deleteById(Long id) {
-        newsCategoryRepository.deleteById(id);
-    }
-    @Override
-    public NewsCategory findByCategory(Category category) {
-        return newsCategoryRepository.findNewsCategoryByCategory(category);
-    }
+
     @Override
     public NewsCategory update(NewsCategory newsCategory) {
         var existedCategory = findById(newsCategory.getId());

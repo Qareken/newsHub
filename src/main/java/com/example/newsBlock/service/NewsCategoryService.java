@@ -13,13 +13,7 @@ public interface NewsCategoryService {
     NewsCategory findById(Long id);
 
     // Получение списка всех категорий
-    List<NewsCategory> findAll();
 
-    // Удаление категории по идентификатору
-    void deleteById(Long id);
-
-    // Найти категорию по типу (например, по Category enum)
-    NewsCategory findByCategory(Category category);
     NewsCategory update(NewsCategory newsCategory);
     // Другие методы, если необходимо, в соответствии с вашими требованиями
 }

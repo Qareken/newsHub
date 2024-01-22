@@ -5,7 +5,6 @@ import com.example.newsBlock.service.impl.UsersServiceImpl;
 import com.example.newsBlock.web.model.UpsertUserDTO;
 import com.example.newsBlock.web.model.UserDTO;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UsersServiceImpl usersService;
     private final UserMapper userMapper;
-    @Autowired
+
     public UserController(UsersServiceImpl usersService, UserMapper userMapper) {
         this.usersService = usersService;
         this.userMapper = userMapper;
