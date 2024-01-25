@@ -11,6 +11,7 @@ public interface NewsCategoryService {
 
     // Поиск категории по идентификатору
     NewsCategory findById(Long id);
+    NewsCategory findByCategory(String category);
 
     // Получение списка всех категорий
 

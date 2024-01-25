@@ -1,13 +1,16 @@
 package com.example.newsBlock.service.impl;
 
 
+import com.example.newsBlock.Exception.EmailDuplicate;
 import com.example.newsBlock.Exception.EntityNotFoundException;
 import com.example.newsBlock.entity.Users;
 import com.example.newsBlock.repository.UserRepository;
 import com.example.newsBlock.service.UsersService;
 
 
+import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
@@ -18,7 +21,12 @@ public class UsersServiceImpl implements UsersService {
     private final UserRepository userRepository;
     @Override
     public Users save(Users user) {
-        return userRepository.save(user);
+        try {
+            return userRepository.save(user);
+        }catch (Exception e){
+            throw new EmailDuplicate("Email already exist");
+        }
+
     }
 
 

@@ -33,6 +33,12 @@ public class NewsCategoryServiceImpl implements NewsCategoryService {
     }
 
     @Override
+    public NewsCategory findByCategory(String category) {
+        return newsCategoryRepository.findNewsCategoryByCategory(Category.fromLabel(category));
+    }
+
+
+    @Override
     public NewsCategory update(NewsCategory newsCategory) {
         var existedCategory = findById(newsCategory.getId());
         BeanUtils.copyNonNullProperties(newsCategory, existedCategory);

@@ -1,10 +1,7 @@
 package com.example.newsBlock.restController.exceptionHandler;
 
 
-import com.example.newsBlock.Exception.CategoryException;
-import com.example.newsBlock.Exception.CustomDuplicateException;
-import com.example.newsBlock.Exception.EntityNotFoundException;
-import com.example.newsBlock.Exception.ValidException;
+import com.example.newsBlock.Exception.*;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -47,22 +44,23 @@ public class ExceptionUserNotFoundController {
         });
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
     }
-    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ExceptionHandler(EmailDuplicate.class)
     public ResponseEntity<?> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
         // Логирование ошибки для отладки
-        log.error("DataIntegrityViolationException: ", ex);
+//        log.error("DataIntegrityViolationException: ", ex);
 
         // Проверка на конкретное ограничение, например, нарушение уникальности email
-        if (ex.getCause() instanceof ConstraintViolationException cve) {
-            if (cve.getMessage().contains("email_unique_constraint")) {  // имя ограничения может отличаться
-                return ResponseEntity
-                        .status(HttpStatus.CONFLICT)
-                        .body("Email already exists: " + cve.getMessage());
-            }
-        }
+//        if (ex.getCause() instanceof ConstraintViolationException cve) {
+//            if (cve.getMessage().contains("email_unique_constraint")) {  // имя ограничения может отличаться
+//                log.info("email unique Sardar");
+//                return ResponseEntity
+//                        .status(HttpStatus.CONFLICT)
+//                        .body("Email already exists: " + cve.getMessage());
+//            }
+//        }
         // Для других случаев DataIntegrityViolationException
         return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .status(HttpStatus.CONFLICT)
                 .body("Database error: " + ex.getMessage());
     }
 
